@@ -8,3 +8,4 @@
 6. If you want to print a var value, please use `p var_name`, if you want to print a var value in hex, please use `p/x var_name`
 7. If you want to see current stack frame, use `backtrace`, to switch to current stack frame, use `frame [frame_name]`
 8. See stack, `x/20gx $rsp`
+9. 
